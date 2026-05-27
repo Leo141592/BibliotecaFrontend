@@ -6,6 +6,8 @@ function BookDetailsPage() {
 
   const [rating, setRating] = useState(0)
 const [review, setReview] = useState("")
+const [isReading, setIsReading] = useState(false)
+const [isSaved, setIsSaved] = useState(false)
 
   const { id } = useParams()
 
@@ -47,6 +49,41 @@ const [review, setReview] = useState("")
           Esta será la descripción completa del libro.
           
         </p>
+
+        {/* Botones */}
+<div className="flex gap-4 justify-end mt-8">
+
+  {/* Leer */}
+  <button
+    onClick={() => setIsReading(!isReading)}
+    className={`
+      px-6 py-3 rounded-xl text-white transition
+      ${isReading
+        ? "bg-red-600 hover:bg-red-700"
+        : "bg-green-600 hover:bg-green-700"}
+    `}
+  >
+    {isReading
+      ? "Dejar de leer"
+      : "Comenzar a leer"}
+  </button>
+
+  {/* Guardados */}
+  <button
+    onClick={() => setIsSaved(!isSaved)}
+    className={`
+      px-6 py-3 rounded-xl text-white transition
+      ${isSaved
+        ? "bg-red-500 hover:bg-red-600"
+        : "bg-blue-600 hover:bg-blue-700"}
+    `}
+  >
+    {isSaved
+      ? "Eliminar de guardados"
+      : "Guardar lectura"}
+  </button>
+
+</div>
 
       </div>
 
