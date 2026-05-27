@@ -1,9 +1,34 @@
 import MainLayout from "../layouts/MainLayout"
 import { useNavigate } from "react-router-dom"
+import BookCard from "../components/BookCard"
 
 function AccountPage() {
 
   const navigate = useNavigate()
+
+  const favoriteBooks = [
+  {
+    id: 101,
+    title: "Dune",
+    author: "Frank Herbert",
+    year: "1965",
+    description: "Política y guerra en Arrakis."
+  },
+  {
+    id: 102,
+    title: "Foundation",
+    author: "Isaac Asimov",
+    year: "1951",
+    description: "La caída del Imperio Galáctico."
+  },
+  {
+    id: 103,
+    title: "Neuromancer",
+    author: "William Gibson",
+    year: "1984",
+    description: "Cyberpunk y hackers futuristas."
+  }
+]
 
   return (
 
@@ -69,6 +94,31 @@ function AccountPage() {
         </div>
 
       </div>
+{/* Libros favoritos */}
+<section className="mb-16">
+
+  <h2 className="text-3xl font-bold mb-6">
+    Libros favoritos
+  </h2>
+
+  <div className="flex gap-6 overflow-x-auto pb-4">
+
+    {favoriteBooks.map((book) => (
+
+      <BookCard
+        key={book.id}
+        id={book.id}
+        title={book.title}
+        author={book.author}
+        year={book.year}
+        description={book.description}
+      />
+
+    ))}
+
+  </div>
+
+</section>
 
       {/* Botón logout */}
       <button
