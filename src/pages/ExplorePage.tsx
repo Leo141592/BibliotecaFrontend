@@ -1,6 +1,6 @@
 import BookCard from "../components/BookCard"
-import MainLayout from "../layouts/MainLayout"
 import { useState } from "react"
+import MainLayout from "../layouts/MainLayout"
 
 function ExplorePage() {
 
@@ -10,44 +10,71 @@ function ExplorePage() {
       title: "1984",
       author: "George Orwell",
       year: "1949",
-      description: "Una distopía sobre vigilancia y control."
+      description: "Una distopía sobre vigilancia y control.",
+      genre: "Distopía",
     },
     {
       id: 2,
       title: "Dune",
       author: "Frank Herbert",
       year: "1965",
-      description: "Política, religión y guerra en Arrakis."
+      description: "Política, religión y guerra en Arrakis.",
+      genre: "Ciencia ficción",
     },
     {
       id: 3,
       title: "The Hobbit",
       author: "J.R.R. Tolkien",
       year: "1937",
-      description: "La aventura de Bilbo Bolsón."
+      description: "La aventura de Bilbo Bolsón.",
+      genre: "Fantasía",
     },
     {
       id: 4,
       title: "Foundation",
       author: "Isaac Asimov",
       year: "1951",
-      description: "La caída del Imperio Galáctico."
+      description: "La caída del Imperio Galáctico.",
+      genre: "Ciencia ficción",
     },
     {
       id: 5,
       title: "Fahrenheit 451",
       author: "Ray Bradbury",
       year: "1953",
-      description: "Un mundo donde los libros están prohibidos."
+      description: "Un mundo donde los libros están prohibidos.",
+      genre: "Distopía"
     },
     {
       id: 6,
       title: "Neuromancer",
       author: "William Gibson",
       year: "1984",
-      description: "Cyberpunk y hackers en el futuro."
+      description: "Cyberpunk y hackers en el futuro.",
+      genre: "Ciencia ficción"
     }
   ]
+
+  const [search, setSearch] = useState("")
+const [authorFilter, setAuthorFilter] = useState("")
+const [genreFilter, setGenreFilter] = useState("")
+
+const filteredBooks = books.filter((book) => {
+
+  const matchesSearch =
+    book.title.toLowerCase().includes(search.toLowerCase())
+
+  const matchesAuthor =
+    authorFilter === "" ||
+    book.author === authorFilter
+
+  const matchesGenre =
+    genreFilter === "" ||
+    book.genre === genreFilter
+
+  return matchesSearch && matchesAuthor && matchesGenre
+
+})
 
   const [favorites, setFavorites] = useState<number[]>([])
 
@@ -70,20 +97,51 @@ function ExplorePage() {
       </h1>
 
       {/* Barra búsqueda */}
-      <div className="mb-10">
+      <div className="mb-10 flex flex-col md:flex-row gap-4">
 
-        <input
-          type="text"
-          placeholder="Buscar libros..."
-          className="w-full p-4 rounded-2xl shadow-md bg-white outline-none"
-        />
+  {/* Buscar */}
+  <input
+    type="text"
+    placeholder="Buscar libros..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    className="flex-1 p-4 rounded-2xl shadow-md bg-white outline-none"
+  />
 
-      </div>
+  {/* Filtro autor */}
+  <select
+    value={authorFilter}
+    onChange={(e) => setAuthorFilter(e.target.value)}
+    className="p-4 rounded-2xl shadow-md bg-white"
+  >
+    <option value="">Todos los autores</option>
+    <option>George Orwell</option>
+    <option>Frank Herbert</option>
+    <option>J.R.R. Tolkien</option>
+    <option>Isaac Asimov</option>
+    <option>Ray Bradbury</option>
+    <option>William Gibson</option>
+  </select>
+
+  {/* Filtro género */}
+  <select
+    value={genreFilter}
+    onChange={(e) => setGenreFilter(e.target.value)}
+    className="p-4 rounded-2xl shadow-md bg-white"
+  >
+    <option value="">Todos los géneros</option>
+    <option>Distopía</option>
+    <option>Ciencia ficción</option>
+    <option>Fantasía</option>
+    <option>Cyberpunk</option>
+  </select>
+
+</div>
 
       {/* Grid libros */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        {books.map((book) => (
+        {filteredBooks.map((book) => (
 
           <div
             key={book.id}
