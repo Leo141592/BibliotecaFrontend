@@ -157,4 +157,4 @@ La aplicación está preparada para integrarse posteriormente con:
 
 # Autor
 
-Proyecto desarrollado para el curso de Algoritmos y Estructuras de Datos.
+José Leonel Hernández Suchini 25041
