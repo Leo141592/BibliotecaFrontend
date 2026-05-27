@@ -9,6 +9,8 @@ function AccountPage() {
 
   const [favoriteGenre, setFavoriteGenre] = useState("Ciencia ficción")
 
+  const [favoriteAuthor, setFavoriteAuthor] = useState("Isaac Asimov")
+
   const favoriteBooks = [
     {
       id: 101,
@@ -55,7 +57,7 @@ function AccountPage() {
       </div>
 
       {/* Estadísticas */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
 
         {/* Libros leídos */}
         <div className="bg-white rounded-2xl shadow-md p-6">
@@ -105,18 +107,39 @@ function AccountPage() {
 
         </div>
 
-        {/* Autor favorito */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        {/* Autor más leído */}
+<div className="bg-white rounded-2xl shadow-md p-6">
 
-          <h3 className="text-xl font-semibold mb-2">
-            Autor favorito
-          </h3>
+  <h3 className="text-xl font-semibold mb-2">
+    Autor más leído
+  </h3>
 
-          <p className="text-2xl font-bold">
-            Isaac Asimov
-          </p>
+  <p className="text-xl font-bold">
+    Frank Herbert
+  </p>
 
-        </div>
+</div>
+
+{/* Autor favorito */}
+<div className="bg-white rounded-2xl shadow-md p-6">
+
+  <h3 className="text-xl font-semibold mb-4">
+    Autor favorito
+  </h3>
+
+  <select
+    value={favoriteAuthor}
+    onChange={(e) => setFavoriteAuthor(e.target.value)}
+    className="w-full p-3 rounded-xl border"
+  >
+    <option>Isaac Asimov</option>
+    <option>Frank Herbert</option>
+    <option>George Orwell</option>
+    <option>J.R.R. Tolkien</option>
+    <option>William Gibson</option>
+  </select>
+
+</div>
 
       </div>
 
