@@ -1,0 +1,86 @@
+import MainLayout from "../layouts/MainLayout"
+import { useNavigate } from "react-router-dom"
+
+function AccountPage() {
+
+  const navigate = useNavigate()
+
+  return (
+
+    <MainLayout>
+
+      <h1 className="text-5xl font-bold mb-10">
+        Mi Cuenta
+      </h1>
+
+      {/* Información usuario */}
+      <div className="bg-white rounded-2xl shadow-md p-8 mb-10">
+
+        <h2 className="text-3xl font-bold mb-2">
+          admin
+        </h2>
+
+        <p className="text-gray-600">
+          Usuario de Biblioteca
+        </p>
+
+      </div>
+
+      {/* Estadísticas */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+
+        {/* Libros leídos */}
+        <div className="bg-white rounded-2xl shadow-md p-6">
+
+          <h3 className="text-xl font-semibold mb-2">
+            Libros leídos
+          </h3>
+
+          <p className="text-5xl font-bold">
+            24
+          </p>
+
+        </div>
+
+        {/* Género favorito */}
+        <div className="bg-white rounded-2xl shadow-md p-6">
+
+          <h3 className="text-xl font-semibold mb-2">
+            Género favorito
+          </h3>
+
+          <p className="text-3xl font-bold">
+            Ciencia ficción
+          </p>
+
+        </div>
+
+        {/* Autor favorito */}
+        <div className="bg-white rounded-2xl shadow-md p-6">
+
+          <h3 className="text-xl font-semibold mb-2">
+            Autor favorito
+          </h3>
+
+          <p className="text-3xl font-bold">
+            Isaac Asimov
+          </p>
+
+        </div>
+
+      </div>
+
+      {/* Botón logout */}
+      <button
+        onClick={() => navigate("/")}
+        className="bg-red-600 text-white px-6 py-3 rounded-xl hover:bg-red-700 transition"
+      >
+        Cerrar sesión
+      </button>
+
+    </MainLayout>
+
+  )
+}
+
+export default AccountPage

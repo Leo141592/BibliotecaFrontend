@@ -15,6 +15,7 @@ function Sidebar() {
       <div className="flex flex-col gap-4">
 
         <button
+            onClick={() => navigate("/account")}
           className="text-left hover:text-blue-600 transition cursor-pointer"
         >
           Cuenta
