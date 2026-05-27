@@ -2,26 +2,29 @@ import BookCard from "../components/BookCard"
 
 function HomePage() {
 
-  const books = [
-    {
-      title: "1984",
-      author: "George Orwell",
-      year: "1949",
-      description: "Una distopía sobre vigilancia y control."
-    },
-    {
-      title: "Dune",
-      author: "Frank Herbert",
-      year: "1965",
-      description: "Política, religión y guerra en Arrakis."
-    },
-    {
-      title: "The Hobbit",
-      author: "J.R.R. Tolkien",
-      year: "1937",
-      description: "La aventura de Bilbo Bolsón."
-    }
-  ]
+const books = [
+  {
+    id: 1,
+    title: "1984",
+    author: "George Orwell",
+    year: "1949",
+    description: "Una distopía sobre vigilancia y control."
+  },
+  {
+    id: 2,
+    title: "Dune",
+    author: "Frank Herbert",
+    year: "1965",
+    description: "Política, religión y guerra en Arrakis."
+  },
+  {
+    id: 3,
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    year: "1937",
+    description: "La aventura de Bilbo Bolsón."
+  }
+]
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
@@ -44,6 +47,7 @@ function HomePage() {
             {books.map((book, index) => (
               <BookCard
                 key={index}
+                id={book.id}
                 title={book.title}
                 author={book.author}
                 year={book.year}
@@ -65,6 +69,7 @@ function HomePage() {
             {books.map((book, index) => (
               <BookCard
                 key={index}
+                id={book.id}
                 title={book.title}
                 author={book.author}
                 year={book.year}
@@ -86,6 +91,7 @@ function HomePage() {
             {books.map((book, index) => (
               <BookCard
                 key={index}
+                id={book.id}
                 title={book.title}
                 author={book.author}
                 year={book.year}

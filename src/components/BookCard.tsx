@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom"
+
 type BookCardProps = {
+  id: number
   title: string
   author: string
   year: string
@@ -6,33 +9,41 @@ type BookCardProps = {
 }
 
 function BookCard({
+  id,
   title,
   author,
   year,
   description,
 }: BookCardProps) {
+
   return (
-    <div className="bg-white rounded-2xl shadow-md p-4 min-w-[250px]">
 
-      <div className="h-40 bg-gray-300 rounded-xl mb-4"></div>
+    <Link to={`/books/${id}`}>
 
-      <h3 className="text-xl font-bold">
-        {title}
-      </h3>
+      <div className="bg-white rounded-2xl shadow-md p-4 min-w-[250px] hover:scale-105 transition cursor-pointer">
 
-      <p className="text-gray-600">
-        {author}
-      </p>
+        <div className="h-40 bg-gray-300 rounded-xl mb-4"></div>
 
-      <p className="text-gray-500 text-sm mb-2">
-        {year}
-      </p>
+        <h3 className="text-xl font-bold">
+          {title}
+        </h3>
 
-      <p className="text-sm text-gray-700">
-        {description}
-      </p>
+        <p className="text-gray-600">
+          {author}
+        </p>
 
-    </div>
+        <p className="text-gray-500 text-sm mb-2">
+          {year}
+        </p>
+
+        <p className="text-sm text-gray-700">
+          {description}
+        </p>
+
+      </div>
+
+    </Link>
+
   )
 }
 
