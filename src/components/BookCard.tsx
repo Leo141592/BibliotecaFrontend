@@ -20,7 +20,7 @@ function BookCard({
 
     <Link to={`/books/${id}`}>
 
-      <div className="bg-white rounded-2xl shadow-md p-4 min-w-[250px] hover:scale-105 transition cursor-pointer">
+      <div className="bg-white rounded-2xl shadow-md p-4 min-w-62.5 hover:scale-105 transition cursor-pointer">
 
         <div className="h-40 bg-gray-300 rounded-xl mb-4"></div>
 

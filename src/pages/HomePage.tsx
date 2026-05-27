@@ -1,6 +1,8 @@
 import BookCard from "../components/BookCard"
+import { useNavigate } from "react-router-dom"
 
 function HomePage() {
+    const navigate = useNavigate()
 
 const books = [
   {
@@ -105,7 +107,7 @@ const books = [
       </div>
 
       {/* Sidebar */}
-      <div className="w-64 bg-white shadow-lg p-6">
+      <div className="w-64 min-w-[16rem] bg-white shadow-lg p-6">
 
         <h2 className="text-2xl font-bold mb-8">
           Menú
@@ -121,7 +123,13 @@ const books = [
             Biblioteca
           </button>
 
-          <button className="text-left hover:text-blue-600 transition">
+          <button 
+            onClick={() => {
+            
+                navigate("/explore")
+            }}
+             className="text-left hover:text-blue-600 transition cursor-pointer"
+             >
             Explorar
           </button>
 

@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 
+import ExplorePage from "./pages/ExplorePage"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import HomePage from "./pages/HomePage"
@@ -27,6 +28,8 @@ function App() {
         path="/books/:id"
         element={<BookDetailsPage />}
       />
+
+      <Route path="/explore" element={<ExplorePage />} />
 
     </Routes>
 
