@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom"
 import BookCard from "../components/BookCard"
+import { useState } from "react"
 
 function BookDetailsPage() {
+
+  const [rating, setRating] = useState(0)
+const [review, setReview] = useState("")
 
   const { id } = useParams()
 
@@ -79,6 +83,52 @@ function BookDetailsPage() {
         </div>
 
       </section>
+
+      {/* Reseña */}
+<section className="mt-16">
+
+  <h2 className="text-3xl font-bold mb-6">
+    Mi reseña
+  </h2>
+
+  {/* Estrellas */}
+  <div className="flex gap-2 mb-6">
+
+    {[1, 2, 3, 4, 5].map((star) => (
+
+      <button
+        key={star}
+        onClick={() => setRating(star)}
+        className={`
+          text-4xl transition
+          ${star <= rating
+            ? "text-yellow-400"
+            : "text-gray-300"}
+        `}
+      >
+        ★
+      </button>
+
+    ))}
+
+  </div>
+
+  {/* Caja de reseña */}
+  <textarea
+    value={review}
+    onChange={(e) => setReview(e.target.value)}
+    placeholder="Escribe tu reseña..."
+    className="w-full h-40 p-4 rounded-2xl border shadow-sm resize-none bg-white"
+  />
+
+  {/* Botón guardar */}
+  <button
+    className="mt-4 bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition"
+  >
+    Guardar reseña
+  </button>
+
+</section>
 
     </div>
   )
