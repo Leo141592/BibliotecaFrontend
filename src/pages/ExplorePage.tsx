@@ -1,4 +1,5 @@
 import BookCard from "../components/BookCard"
+import MainLayout from "../layouts/MainLayout"
 
 function ExplorePage() {
 
@@ -49,9 +50,8 @@ function ExplorePage() {
 
   return (
 
-    <div className="min-h-screen bg-gray-100 p-8">
+    <MainLayout>
 
-      {/* Título */}
       <h1 className="text-5xl font-bold mb-8">
         Explorar
       </h1>
@@ -85,7 +85,6 @@ function ExplorePage() {
               description={book.description}
             />
 
-            {/* Botón agregar */}
             <button
               className="absolute top-3 right-3 bg-blue-600 text-white w-8 h-8 rounded-full hover:bg-blue-700 transition"
             >
@@ -98,7 +97,7 @@ function ExplorePage() {
 
       </div>
 
-    </div>
+    </MainLayout>
 
   )
 }

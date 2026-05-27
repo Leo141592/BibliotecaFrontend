@@ -1,8 +1,9 @@
 import BookCard from "../components/BookCard"
-import { useNavigate } from "react-router-dom"
+
+import MainLayout from "../layouts/MainLayout"
 
 function HomePage() {
-    const navigate = useNavigate()
+    
 
 const books = [
   {
@@ -29,116 +30,82 @@ const books = [
 ]
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
 
-      {/* Contenido principal */}
-      <div className="flex-1 p-8">
+  <MainLayout>
 
-        <h1 className="text-5xl font-bold mb-10">
-          Biblioteca
-        </h1>
+    <h1 className="text-5xl font-bold mb-10">
+      Biblioteca
+    </h1>
 
-        {/* Lecturas en proceso */}
-        <section className="mb-10">
+    {/* Lecturas en proceso */}
+    <section className="mb-10">
 
-          <h2 className="text-2xl font-semibold mb-4">
-            Lecturas en proceso
-          </h2>
+      <h2 className="text-2xl font-semibold mb-4">
+        Lecturas en proceso
+      </h2>
 
-          <div className="flex gap-6 overflow-x-auto pb-2">
-            {books.map((book, index) => (
-              <BookCard
-                key={index}
-                id={book.id}
-                title={book.title}
-                author={book.author}
-                year={book.year}
-                description={book.description}
-              />
-            ))}
-          </div>
-
-        </section>
-
-        {/* Lecturas guardadas */}
-        <section className="mb-10">
-
-          <h2 className="text-2xl font-semibold mb-4">
-            Lecturas guardadas
-          </h2>
-
-          <div className="flex gap-6 overflow-x-auto pb-2">
-            {books.map((book, index) => (
-              <BookCard
-                key={index}
-                id={book.id}
-                title={book.title}
-                author={book.author}
-                year={book.year}
-                description={book.description}
-              />
-            ))}
-          </div>
-
-        </section>
-
-        {/* Lecturas terminadas */}
-        <section>
-
-          <h2 className="text-2xl font-semibold mb-4">
-            Lecturas terminadas
-          </h2>
-
-          <div className="flex gap-6 overflow-x-auto pb-2">
-            {books.map((book, index) => (
-              <BookCard
-                key={index}
-                id={book.id}
-                title={book.title}
-                author={book.author}
-                year={book.year}
-                description={book.description}
-              />
-            ))}
-          </div>
-
-        </section>
-
+      <div className="flex gap-6 overflow-x-auto pb-2">
+        {books.map((book, index) => (
+          <BookCard
+            key={index}
+            id={book.id}
+            title={book.title}
+            author={book.author}
+            year={book.year}
+            description={book.description}
+          />
+        ))}
       </div>
 
-      {/* Sidebar */}
-      <div className="w-64 min-w-[16rem] bg-white shadow-lg p-6">
+    </section>
 
-        <h2 className="text-2xl font-bold mb-8">
-          Menú
-        </h2>
+    {/* Lecturas guardadas */}
+    <section className="mb-10">
 
-        <div className="flex flex-col gap-4">
+      <h2 className="text-2xl font-semibold mb-4">
+        Lecturas guardadas
+      </h2>
 
-          <button className="text-left hover:text-blue-600 transition">
-            Cuenta
-          </button>
-
-          <button className="text-left hover:text-blue-600 transition">
-            Biblioteca
-          </button>
-
-          <button 
-            onClick={() => {
-            
-                navigate("/explore")
-            }}
-             className="text-left hover:text-blue-600 transition cursor-pointer"
-             >
-            Explorar
-          </button>
-
-        </div>
-
+      <div className="flex gap-6 overflow-x-auto pb-2">
+        {books.map((book, index) => (
+          <BookCard
+            key={index}
+            id={book.id}
+            title={book.title}
+            author={book.author}
+            year={book.year}
+            description={book.description}
+          />
+        ))}
       </div>
 
-    </div>
-  )
+    </section>
+
+    {/* Lecturas terminadas */}
+    <section>
+
+      <h2 className="text-2xl font-semibold mb-4">
+        Lecturas terminadas
+      </h2>
+
+      <div className="flex gap-6 overflow-x-auto pb-2">
+        {books.map((book, index) => (
+          <BookCard
+            key={index}
+            id={book.id}
+            title={book.title}
+            author={book.author}
+            year={book.year}
+            description={book.description}
+          />
+        ))}
+      </div>
+
+    </section>
+
+  </MainLayout>
+
+)
 }
 
 export default HomePage
