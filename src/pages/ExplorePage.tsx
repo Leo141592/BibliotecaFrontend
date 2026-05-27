@@ -1,5 +1,6 @@
 import BookCard from "../components/BookCard"
 import MainLayout from "../layouts/MainLayout"
+import { useState } from "react"
 
 function ExplorePage() {
 
@@ -48,6 +49,18 @@ function ExplorePage() {
     }
   ]
 
+  const [favorites, setFavorites] = useState<number[]>([])
+
+  const toggleFavorite = (id: number) => {
+
+  if (favorites.includes(id)) {
+    setFavorites(favorites.filter(bookId => bookId !== id))
+  } else {
+    setFavorites([...favorites, id])
+  }
+
+}
+
   return (
 
     <MainLayout>
@@ -83,6 +96,8 @@ function ExplorePage() {
               author={book.author}
               year={book.year}
               description={book.description}
+              isFavorite={favorites.includes(book.id)}
+              onToggleFavorite={() => toggleFavorite(book.id)}
             />
 
             <button

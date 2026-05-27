@@ -6,6 +6,8 @@ type BookCardProps = {
   author: string
   year: string
   description: string
+  isFavorite?: boolean
+  onToggleFavorite?: () => void
 }
 
 function BookCard({
@@ -14,35 +16,55 @@ function BookCard({
   author,
   year,
   description,
+  isFavorite = false,
+  onToggleFavorite
 }: BookCardProps) {
 
   return (
 
-    <Link to={`/books/${id}`}>
+    <div className="relative">
 
-      <div className="bg-white rounded-2xl shadow-md p-4 min-w-62.5 hover:scale-105 transition cursor-pointer">
+      {/* Botón favoritos */}
+      <button
+        onClick={onToggleFavorite}
+        className={`
+          absolute -top-2 -left-2 z-10
+          w-10 h-10 rounded-full
+          text-white font-bold text-xl
+          transition
+          ${isFavorite
+            ? "bg-red-500 hover:bg-red-600"
+            : "bg-yellow-400 hover:bg-yellow-500"}
+        `}
+      >
+        {isFavorite ? "−" : "★"}
+      </button>
 
-        <div className="h-40 bg-gray-300 rounded-xl mb-4"></div>
+      <Link to={`/books/${id}`}>
 
-        <h3 className="text-xl font-bold">
-          {title}
-        </h3>
+        <div className="bg-white rounded-2xl shadow-md p-4 min-w-[250px] hover:scale-105 transition cursor-pointer">
 
-        <p className="text-gray-600">
-          {author}
-        </p>
+          <h3 className="text-xl font-bold">
+            {title}
+          </h3>
 
-        <p className="text-gray-500 text-sm mb-2">
-          {year}
-        </p>
+          <p className="text-gray-600">
+            {author}
+          </p>
 
-        <p className="text-sm text-gray-700">
-          {description}
-        </p>
+          <p className="text-gray-500 text-sm mb-2">
+            {year}
+          </p>
 
-      </div>
+          <p className="text-sm text-gray-700">
+            {description}
+          </p>
 
-    </Link>
+        </div>
+
+      </Link>
+
+    </div>
 
   )
 }
