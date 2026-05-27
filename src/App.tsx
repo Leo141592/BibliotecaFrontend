@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-
+import FriendsPage from "./pages/FriendsPage"
 import AccountPage from "./pages/AccountPage"
 import ExplorePage from "./pages/ExplorePage"
 import LoginPage from "./pages/LoginPage"
@@ -33,6 +33,11 @@ function App() {
       />
 
       <Route path="/explore" element={<ExplorePage />} />
+
+      <Route
+  path="/friends"
+  element={<FriendsPage />}
+/>
 
     </Routes>
 

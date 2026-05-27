@@ -35,6 +35,13 @@ function Sidebar() {
           Explorar
         </button>
 
+        <button
+  onClick={() => navigate("/friends")}
+  className="text-left hover:text-blue-600 transition"
+>
+  Amigos
+</button>
+
       </div>
 
     </div>
