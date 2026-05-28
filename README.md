@@ -8,7 +8,9 @@ El proyecto permite a los usuarios:
 - explorar libros
 - visualizar detalles de libros
 - recibir recomendaciones
-- administrar su biblioteca personal
+- administrar su biblioteca personal-
+- agregar Amigos
+- guardar lecturas favoritas
 
 ---
 
@@ -94,12 +96,13 @@ src/
 
 - Visualización de libros recomendados
 - Barra de búsqueda
-- Agregar libros
+- Agregar libros a guardados
 
 ## Detalles de libros
 
 - Información detallada
 - Recomendaciones similares
+- Reseña del libro
 
 ## Cuenta
 
@@ -138,20 +141,6 @@ La aplicación está preparada para integrarse posteriormente con:
   - RandomWalk
   - Jaccard
   - PageRank
-
----
-
-# Futuras mejoras
-
-- Integración completa con backend
-- Base de datos real
-- Búsqueda funcional
-- Sistema de favoritos
-- Imágenes reales de libros
-- Recomendaciones dinámicas
-- Responsive móvil
-- Modo oscuro
-- Perfil editable
 
 ---
 
