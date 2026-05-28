@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import BookCard from "../components/BookCard"
 import { useState } from "react"
 
 function BookDetailsPage() {
 
+  const navigate = useNavigate()
   const [rating, setRating] = useState(0)
 const [review, setReview] = useState("")
 const [isReading, setIsReading] = useState(false)
@@ -167,7 +168,19 @@ const [isSaved, setIsSaved] = useState(false)
 
 </section>
 
-    </div>
+{/* Botón volver */}
+<div className="flex justify-end mt-12">
+
+  <button
+    onClick={() => navigate("/home")}
+    className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition"
+  >
+    Volver a la biblioteca
+  </button>
+
+</div>
+
+</div>
   )
 }
 
