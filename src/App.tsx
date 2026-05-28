@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import HomePage from "./pages/HomePage"
 import BookDetailsPage from "./pages/BookDetailsPage"
+import SearchFriendsPage from "./pages/SearchFriendsPage"
 
 function App() {
 
@@ -37,6 +38,11 @@ function App() {
       <Route
   path="/friends"
   element={<FriendsPage />}
+/>
+
+<Route
+  path="/search-friends"
+  element={<SearchFriendsPage />}
 />
 
     </Routes>
